@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ODDCAST | Yasom</title>
+<meta name="description" content="Welcome to Black Sheep University. Music, socials, and projects by Yasom.">
+<meta name="theme-color" content="#100d0b">
+<meta property="og:title" content="ODDCAST | Yasom">
+<meta property="og:description" content="Welcome to Black Sheep University.">
+<meta property="og:type" content="website">
+<style>
+:root{--bg:#100d0b;--cu:#c8956c;--cu2:#f2cfa8;--cream:#f6e8d6;--mute:rgba(246,232,214,.68);--ease:cubic-bezier(.23,1,.32,1)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg)}
+body{min-height:100dvh;color:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;overflow-x:hidden;position:relative}
+.aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.38;will-change:transform}
+.b1{width:60vmax;height:60vmax;left:-22vmax;top:-20vmax;background:#c8956c;animation:d1 24s ease-in-out infinite alternate}
+.b2{width:50vmax;height:50vmax;right:-22vmax;top:30vh;background:#7d5232;animation:d2 28s ease-in-out infinite alternate}
+.b3{width:44vmax;height:44vmax;left:5vmax;bottom:-22vmax;background:#f2cfa8;opacity:.22;animation:d3 26s ease-in-out infinite alternate}
+.dot{position:absolute;border-radius:50%;background:radial-gradient(circle,#fffaf0 0 35%,#ffe2bd 60%,#f2cfa8 100%);box-shadow:0 0 8px 2px rgba(255,236,208,.95),0 0 22px 6px rgba(242,207,168,.7),0 0 44px 10px rgba(200,149,108,.4);will-change:transform,opacity;animation-name:tw}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.55}}
+.grid{position:fixed;left:-50%;right:-50%;bottom:0;height:48vh;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(242,207,168,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(242,207,168,.28) 1px,transparent 1px);background-size:56px 56px;transform:perspective(380px) rotateX(62deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(to top,#000 5%,transparent 85%);mask-image:linear-gradient(to top,#000 5%,transparent 85%);animation:gm 6s linear infinite;opacity:.55}
+@keyframes gm{to{background-position:0 56px,0 0}}
+.rail{position:fixed;top:12vh;bottom:12vh;left:max(6px,calc(50% - 264px));width:14px;z-index:1;pointer-events:none;--p:0}
+.thread{position:absolute;left:6px;top:7px;bottom:7px;width:2px;border-radius:2px;background:rgba(242,207,168,.18);overflow:hidden}
+.thread .fill{position:absolute;left:0;top:0;width:100%;height:calc(var(--p)*100%);background:linear-gradient(180deg,rgba(242,207,168,.5),#ffe2bd);box-shadow:0 0 10px rgba(255,226,189,.9)}
+.thread .pulse{position:absolute;left:-1px;width:4px;height:46px;border-radius:4px;background:linear-gradient(180deg,transparent,#fffaf0,transparent);box-shadow:0 0 12px 3px rgba(255,236,208,.8);animation:tp 3.2s cubic-bezier(.45,0,.3,1) infinite}
+@keyframes tp{0%{top:-46px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:100%;opacity:0}}
+.node{position:absolute;left:2px;width:10px;height:10px;border-radius:50%;background:#3a2a1e;border:1px solid rgba(242,207,168,.5);transition:background .5s var(--ease),box-shadow .5s var(--ease),transform .5s var(--ease)}
+.node.on{background:radial-gradient(circle,#fffaf0 0 35%,#ffe2bd 70%,#f2cfa8);border-color:#ffe2bd;box-shadow:0 0 8px 2px rgba(255,236,208,.95),0 0 22px 6px rgba(242,207,168,.65);transform:scale(1.25)}
+.n1{top:0}.n2{top:calc(50% - 5px)}.n3{bottom:0}
+.status{margin-top:-6px;margin-bottom:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:3px;color:var(--cu2);display:flex;align-items:center;gap:8px;animation:rise .9s .05s var(--ease) both}
+.status i{width:6px;height:6px;border-radius:50%;background:#ffe2bd;box-shadow:0 0 10px 3px rgba(255,226,189,.9);animation:tw 1.6s ease-in-out infinite}
+.o1{width:8px;height:8px;left:12%;top:18%;animation:f1 14s ease-in-out infinite alternate}
+.o2{width:5px;height:5px;right:14%;top:12%;animation:f2 11s ease-in-out infinite alternate}
+.o3{width:10px;height:10px;right:8%;top:46%;animation:f3 17s ease-in-out infinite alternate}
+.o4{width:6px;height:6px;left:7%;top:58%;animation:f2 13s ease-in-out infinite alternate-reverse}
+.o5{width:9px;height:9px;left:30%;bottom:10%;animation:f1 16s ease-in-out infinite alternate-reverse}
+.o6{width:4px;height:4px;right:30%;bottom:18%;animation:f3 12s ease-in-out infinite alternate}
+.o7{width:6px;height:6px;left:22%;top:38%;animation:f3 15s ease-in-out infinite alternate-reverse}
+.o8{width:5px;height:5px;right:22%;top:70%;animation:f1 18s ease-in-out infinite alternate}
+.o9{width:7px;height:7px;left:62%;top:8%;animation:f2 16s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate3d(14vmax,10vmax,0) scale(1.15)}}
+@keyframes d2{to{transform:translate3d(-12vmax,-8vmax,0) scale(1.1)}}
+@keyframes d3{to{transform:translate3d(10vmax,-12vmax,0) scale(1.2)}}
+@keyframes f1{to{transform:translate3d(40px,-70px,0)}}
+@keyframes f2{to{transform:translate3d(-50px,60px,0)}}
+@keyframes f3{to{transform:translate3d(-30px,-90px,0)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(255,240,220,.07),transparent 60%),linear-gradient(180deg,rgba(16,13,11,.1),rgba(16,13,11,.6))}
+main{position:relative;z-index:2;max-width:480px;margin:0 auto;padding:max(48px,env(safe-area-inset-top)) 20px max(48px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center}
+.orb{position:relative;width:132px;height:132px;margin-bottom:24px;animation:rise .9s var(--ease) both}
+.orb .core{position:absolute;inset:10px;border-radius:50%;overflow:hidden;display:grid;place-items:center;font-size:46px;font-weight:800;letter-spacing:-2px;background:radial-gradient(circle at 30% 25%,rgba(255,243,224,.55),rgba(242,207,168,.1) 45%,rgba(200,149,108,.04) 70%),linear-gradient(145deg,rgba(242,207,168,.3),rgba(125,82,50,.25));border:1px solid rgba(242,207,168,.5);box-shadow:inset 0 0 30px rgba(255,243,224,.15),0 10px 40px rgba(200,149,108,.4);animation:float 6s ease-in-out infinite}
+.core img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(242,207,168,.55);animation:pulse 3.6s ease-out infinite}
+.ring.r2{animation-delay:1.8s}
+@keyframes pulse{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+@keyframes float{50%{transform:translateY(-6px)}}
+h1{font-size:38px;line-height:1.1;letter-spacing:-1.2px;text-wrap:balance;font-weight:800;text-align:center;background:linear-gradient(90deg,#f6e0c4,#d19f77 60%,#f2cfa8);-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .9s .08s var(--ease) both}
+.role{margin-top:10px;display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.3px;color:var(--cu2);text-decoration:none;text-align:center;background:rgba(200,149,108,.14);border:1px solid rgba(242,207,168,.35);animation:rise .9s .12s var(--ease) both;transition:transform .18s var(--ease)}
+.role:active{transform:scale(.97)}
+.brand{margin-top:22px;font-size:13px;font-weight:700;letter-spacing:5px;color:var(--cu);text-align:center;animation:rise .9s .16s var(--ease) both}
+.sub{margin-top:6px;font-size:17px;color:var(--mute);text-align:center;letter-spacing:.2px;animation:rise .9s .2s var(--ease) both;text-wrap:balance}
+.group{width:100%;margin-top:32px}
+.label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--cu2);margin:0 4px 12px;animation:rise .9s var(--ease) both;display:flex;align-items:center;gap:10px}
+.label::before{content:"//";color:var(--cu)}
+.label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(242,207,168,.5),transparent)}
+.card{display:flex;align-items:center;gap:14px;width:100%;min-height:64px;padding:14px 18px;margin-bottom:12px;border-radius:20px;color:var(--cream);text-decoration:none;font-size:17px;font-weight:600;background:linear-gradient(145deg,rgba(242,207,168,.14),rgba(200,149,108,.05));border:1px solid rgba(200,149,108,.3);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:0 8px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,243,224,.2);transition:transform .18s var(--ease),background .18s ease,border-color .18s ease;animation:rise .8s var(--ease) both;animation-delay:calc(var(--i)*60ms + .25s);position:relative;overflow:hidden}
+.card.first{border-color:rgba(255,226,189,.75);background:linear-gradient(145deg,rgba(242,207,168,.26),rgba(200,149,108,.1));box-shadow:0 0 28px rgba(242,207,168,.25),0 8px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,243,224,.3)}
+.card{border-top-color:rgba(255,226,189,.45)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,243,224,.22) 50%,transparent 65%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.card:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.card:hover{transform:translateY(-2px);border-color:rgba(242,207,168,.6);background:linear-gradient(145deg,rgba(242,207,168,.24),rgba(200,149,108,.1))}.card:hover::after{transform:translateX(120%)}}
+.ico{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(200,149,108,.18);border:1px solid rgba(242,207,168,.3)}
+.ico svg{width:22px;height:22px;fill:none;stroke:#f6e0c4;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.txt{flex:1;min-width:0}
+.txt small{display:block;font-size:13px;font-weight:400;color:var(--mute);margin-top:2px}
+.arrow{flex:none;opacity:.6;width:18px;height:18px;fill:none;stroke:#f2cfa8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+footer{margin-top:28px;font-size:13px;color:var(--mute);text-align:center;animation:rise .9s .9s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="dot o1"></div><div class="dot o2"></div><div class="dot o3"></div><div class="dot o4"></div><div class="dot o5"></div><div class="dot o6"></div><div class="dot o7"></div><div class="dot o8"></div><div class="dot o9"></div>
+</div>
+<div class="grid" aria-hidden="true"></div>
+<div class="rail" id="rail" aria-hidden="true"><div class="thread"><div class="fill"></div><div class="pulse"></div></div><span class="node n1 on"></span><span class="node n2"></span><span class="node n3"></span></div>
+<div class="grain" aria-hidden="true"></div>
+<main>
+  <div class="orb"><div class="ring"></div><div class="ring r2"></div><div class="core">Y<img src="avatar.jpg" alt="Yasom" onerror="this.remove()"></div></div>
+  <p class="status"><i></i>SYSTEM ONLINE</p>
+  <h1>Yasom Williams</h1>
+  <a class="role" href="https://www.mitypeapp.com" target="_blank" rel="noopener">Developer and Founder of mitypeapp.com</a>
+  <p class="brand">ODDCAST</p>
+  <p class="sub">Welcome to Black Sheep University</p>
+
+  <section class="group">
+    <p class="label" style="animation-delay:.2s">Follow</p>
+    <a class="card first" style="--i:0" href="https://www.mitypeapp.com" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 19c.5-3.2 2.8-5 5.5-5s5 1.8 5.5 5M15 14.2c2.5-.3 4.8 1.2 5.5 4.3"/></svg></span>
+      <span class="txt">Mitype Social<small>Connecting creators and professionals</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="card" style="--i:1" href="https://www.tiktok.com/@oddcast_" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5M14 4c.4 2.4 2 4 4.5 4.2"/></svg></span>
+      <span class="txt">TikTok<small>@oddcast_</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </section>
+
+  <section class="group" style="margin-top:20px">
+    <p class="label" style="animation-delay:.4s">Listen</p>
+    <a class="card" style="--i:3" href="https://open.spotify.com/artist/4CTgnk5xXfbpmOlGMK0urg?si=N-MgOz8xRYOJi45A8vdayA" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.5 9.5c3-1 6.5-.8 9 .8M8 12.5c2.5-.8 5-.6 7.3.7M8.5 15.3c2-.5 4-.3 5.8.6"/></svg></span>
+      <span class="txt">Spotify<small>Yasom8</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="card" style="--i:4" href="https://music.apple.com/us/artist/yasom8/1733931132" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></span>
+      <span class="txt">Apple Music<small>Yasom8</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </section>
+
+  <section class="group" style="margin-top:20px">
+    <p class="label" style="animation-delay:.6s">Shop and support</p>
+    <a class="card" style="--i:6" href="https://shopmy.us/shop?Curator_id=1248896&amp;tab=collections&amp;Section_id=4741166" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 11H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>
+      <span class="txt">ShopMy Home<small>Favorites for your space</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="card" style="--i:7" href="https://www.paypal.me/yasom8" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></span>
+      <span class="txt">PayPal<small>Support the work</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="card" style="--i:8" href="https://cash.app/$volkanyak" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6.5V8M12 16v1.5"/></svg></span>
+      <span class="txt">Cash App<small>Send a tip</small></span>
+      <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </section>
+
+  <footer>ODDCAST</footer>
+</main>
+<script>
+(function(){
+var rail=document.getElementById('rail');var nodes=rail.querySelectorAll('.node');var ticking=false;
+function upd(){
+var max=document.documentElement.scrollHeight-window.innerHeight;
+var p=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
+rail.style.setProperty('--p',p);
+nodes[0].classList.add('on');
+nodes[1].classList.toggle('on',p>=.45);
+nodes[2].classList.toggle('on',p>=.95);
+ticking=false;
+}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
+window.addEventListener('resize',upd);upd();
+})();
+</script>
+</body>
+</html>
